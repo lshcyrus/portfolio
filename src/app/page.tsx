@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BackgroundAnimation from "./components/BackgroundAnimation";
+import DevelopmentNotice from "./components/DevelopmentNotice";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
           </Link>
         </div>
       </div>
+      <DevelopmentNotice />
     </div>
   );
 }
