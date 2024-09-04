@@ -14,7 +14,7 @@ const experiences: Experience[] = [
     company: "Fase Technology Group Limited",
     duration: "June 2024 - September 2024",
     description: [
-      "Developed a control system for robotic arm DOBOT CR5",
+      "Developed a control system for robotic arm DOBOT CR5 using Python and Flask WSGI Framework, together with usage of SenseTime SensePower for object detection and image recognition.",
     ],
     technologies: ["Python", "TCP/IP", "Flask WSGI Framework", "Arduino", "ESP32-CAM", "Lua", "C++", "NVIDIA Jetson Nano", "NVIDIA CUDA", "NVIDIA TensorRT", "PyTorch"]
   },
