@@ -20,24 +20,9 @@
 }
 
 :root {
-  --primary-color: 59, 130, 246; /* blue-500 */
-  --secondary-color: 99, 102, 241; /* indigo-500 */
-  --background-color: 255, 255, 255; /* white */
-  --text-color: 31, 41, 55; /* gray-800 */
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  --bg-start: 224, 242, 254;  /* Light blue for light mode */
-  --bg-end: 237, 233, 254;    /* Light purple for light mode */
-}
-
-.dark {
-  --primary-color: 96, 165, 250; /* blue-400 */
-  --secondary-color: 129, 140, 248; /* indigo-400 */
-  --background-color: 17, 24, 39; /* gray-900 */
-  --text-color: 243, 244, 246; /* gray-100 */
-  --bg-start: 30, 41, 59;     /* Darker blue for dark mode */
-  --bg-end: 51, 65, 85;       /* Darker purple for dark mode */
 }
 
 @media (prefers-color-scheme: dark) {
