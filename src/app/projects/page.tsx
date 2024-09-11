@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Header from '../components/Header';
 
 interface Project {
   title: string;
@@ -8,12 +9,6 @@ interface Project {
 }
 
 const projects: Project[] = [
-  {
-    title: "Personal Portfolio Website",
-    description: "A responsive website showcasing my skills and projects.",
-    technologies: ["React", "Next.js", "HTML", "Tailwind CSS", "TypeScript"],
-    link: "https://github.com/yourusername/portfolio",
-  },
   // Add more projects here
   {
     title: "Robotics Control System",
@@ -21,11 +16,23 @@ const projects: Project[] = [
     technologies: ["Python", "ESP32-CAM", "Arduino", "TCP/IP", "Flask WSGI Framework"],
   },
   {
-    title: "Peanut KING Education",
+    title: "Peanut KING Education Homepage",
     description: "Redesigned and developed the education homepage for Peanut KING Solution Limited.",
-    technologies: ["React", "Next.js", "HTML", "CSS", "JavaScript", "AWS EC2", "Ubuntu"],
-    link: "https://peanutkingeducation.com",
+    technologies: ["React", "Next.js", "HTML", "CSS", "JavaScript", "AWS EC2", "Ubuntu", "Docker"],
+    link: "https://github.com/lshcyrus/Peanut-King-Solution-Limited-EduHome",
   },
+  {
+    title: "Peanut KING Education Platform",
+    description: "Maintained and developed the online education platform for Peanut KING Solution Limited.",
+    technologies: ["React", "Node.js", "JavaScript", "Django", "Python", "HTML", "CSS", "AWS EC2", "Ubuntu"],
+    link: "https://peanutkingeducation.com/sign-in.html",
+  },
+  {
+    title: "Uno",
+    description: "Replicated the classic game Uno using C++. Implemented the game logic, player interaction, and card shuffling.",
+    technologies: ["C++"],
+    link: "https://github.com/lshcyrus/Uno",
+  }
   
 ];
 
@@ -33,14 +40,14 @@ export default function Projects() {
   return (
     <main className="flex min-h-screen flex-col items-center p-4 sm:p-8 md:p-16 lg:p-24 dark:bg-gray-900">
       <div className="w-full max-w-6xl">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-8 text-center dark:text-white">MY PROJECTS</h1>
+        <Header title="PROJECTS" />
         <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
             <div key={index} className="bg-gray-100 dark:bg-gray-800 p-4 sm:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
               <h2 className="text-xl sm:text-2xl font-semibold mb-2 dark:text-white">{project.title}</h2>
               <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-3">{project.description}</p>
               <div className="mb-3">
-                <h3 className="text-xs sm:text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">Technologies:</h3>
+                <h3 className="text-xs sm:text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">Technical Skills:</h3>
                 <div className="flex flex-wrap gap-1 sm:gap-2">
                   {project.technologies.map((tech, techIndex) => (
                     <span key={techIndex} className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 text-xs px-2 py-0.5 rounded">

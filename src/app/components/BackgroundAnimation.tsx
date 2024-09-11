@@ -1,54 +1,58 @@
 'use client'
 
-import React, { useEffect, useState } from 'react';
-
-const CodeIcon = () => (
-  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M10 20L18 28L16 30L6 20L16 10L18 12L10 20Z" fill="currentColor"/>
-    <path d="M30 20L22 28L24 30L34 20L24 10L22 12L30 20Z" fill="currentColor"/>
-  </svg>
-);
-
-const RobotArmIcon = () => (
-  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="20" cy="10" r="5" fill="currentColor" />
-    <rect x="18" y="10" width="4" height="20" fill="currentColor" />
-    <circle cx="20" cy="30" r="3" fill="currentColor" />
-    <rect x="18" y="30" width="4" height="10" transform="rotate(30 18 30)" fill="currentColor" />
-    <circle cx="22" cy="38" r="2" fill="currentColor" />
-  </svg>
-);
-
-const BackgroundElement = ({ type }: { type: 'code' | 'robot' }) => (
-  <div className={`bg-element ${type}`}>
-    {type === 'code' ? <CodeIcon /> : <RobotArmIcon />}
-  </div>
-);
+import React, { useEffect, useRef } from 'react';
 
 const BackgroundAnimation = () => {
-  const [elements, setElements] = useState<React.ReactNode[]>([]);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const newElements = [...Array(20)].map((_, i) => (
-      <div key={i} className="element-wrapper" style={{
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-        animationDelay: `${Math.random() * 5}s`,
-        animationDuration: `${30 + Math.random() * 20}s`
-      }}>
-        <BackgroundElement type={i % 2 === 0 ? 'code' : 'robot'} />
-      </div>
-    ));
-    setElements(newElements);
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let animationFrameId: number;
+
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    let t = 0;
+
+    const animate = () => {
+      t += 0.005; // Adjust this value to change the speed of transition
+
+      const startColor = getComputedStyle(document.documentElement).getPropertyValue('--bg-start').split(',').map(Number);
+      const endColor = getComputedStyle(document.documentElement).getPropertyValue('--bg-end').split(',').map(Number);
+
+      const r = Math.sin(t) * (endColor[0] - startColor[0]) / 2 + (endColor[0] + startColor[0]) / 2;
+      const g = Math.sin(t) * (endColor[1] - startColor[1]) / 2 + (endColor[1] + startColor[1]) / 2;
+      const b = Math.sin(t) * (endColor[2] - startColor[2]) / 2 + (endColor[2] + startColor[2]) / 2;
+
+      const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+      gradient.addColorStop(0, `rgb(${r}, ${g}, ${b})`);
+      gradient.addColorStop(1, `rgb(${startColor[0]}, ${startColor[1]}, ${startColor[2]})`);
+
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      window.removeEventListener('resize', resizeCanvas);
+      cancelAnimationFrame(animationFrameId);
+    };
   }, []);
 
-  return (
-    <div className="background-animation-container">
-      <div className="background-animation">
-        {elements}
-      </div>
-    </div>
-  );
+  return <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full -z-10" />;
 };
 
 export default BackgroundAnimation;

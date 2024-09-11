@@ -14,9 +14,9 @@ const experiences: Experience[] = [
     company: "Fase Technology Group Limited",
     duration: "June 2024 - September 2024",
     description: [
-      "Developed a control system for robotic arm DOBOT CR5 using Python and Flask WSGI Framework, together with usage of SenseTime SensePower and ESP32-CAM for object detection and image recognition.",
-      "Implemented a TCP/IP communication protocol between the robotic arm and the ESP32-CAM for real-time data transmission and control.",
-      "Utilized NVIDIA Jetson Nano for real-time image processing and object detection, achieving over 90% accuracy in object recognition tasks.",
+      "Collaborated with the project team and developed a control system for robotic arm DOBOT CR5 using Python and Flask WSGI Framework, together with usage of SenseTime SensePower and ESP32-CAM for object detection and image recognition.",
+      "Implemented a TCP/IP communication protocol between the robotic arm and the ESP32-CAM for real-time data transmission and control using Python, Lua and Arduino IDE.",
+      "Utilized NVIDIA Jetson Nano for real-time video processing and object detection, achieving over 90% accuracy in object recognition tasks.",
     ],
     technologies: ["Python", "TCP/IP", "Flask WSGI Framework", "Arduino", "ESP32-CAM", "Lua", "C++", "NVIDIA Jetson Nano", "NVIDIA CUDA", "NVIDIA TensorRT", "PyTorch"]
   },
@@ -25,9 +25,8 @@ const experiences: Experience[] = [
     company: "Peanut KING Solution Limited",
     duration: "April 2024 - May 2024",
     description: [
-      "Developed and maintained web applications using React and Node.js",
-      "Collaborated with the team to implement new features and improve existing ones",
-      "Participated in code reviews and contributed to improving code quality"
+      "Partnered efficiently with the marketing team and performed Search Engine Optimization (SEO) by renewing interface of home page using Next.js, resulting in an 18% increase in the number of new users",
+      "Implemented Google Analytics to track user behavior and optimize website performance",
     ],
     technologies: ["React", "Node.js", "JavaScript", "Next.js", "HTML", "CSS", "Docker"]
   },
@@ -36,9 +35,10 @@ const experiences: Experience[] = [
     company: "Peanut KING Solution Limited",
     duration: "June 2023 - September 2023",
     description: [
-      "Developed and maintained web applications using React and Node.js",
-      "Collaborated with the team to implement new features and improve existing ones",
-      "Participated in code reviews and contributed to improving code quality"
+      "Redesigned and implemented 3 front-end of online education platform: Dashboard, Student panel and Admin panel using React.js, HTML and CSS",
+      "Maintained back-end of online education platform using Python, Django and AWS Linux 2, successfully addressed and solved 2 previous back-end issues",
+      "Collaborated effectively with the teaching team and implemented Wall following algorithm for autonomous robotic maze car using Arduino IDE",
+      "Assisted in HKU Engineering Academy For the Talented 2023 and conducted Arduino code reviews for over 50 participants from diverse backgrounds",
     ],
     technologies: ["React", "Node.js", "JavaScript", "Django"]
   }
