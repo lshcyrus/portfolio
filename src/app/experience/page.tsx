@@ -60,7 +60,7 @@ const ExperiencePage = () => {
                 </time>
                 <div className="text-xl font-bold text-gray-900 dark:text-white">{exp.title}</div>
               </div>
-              <div className="text-black-800 dark:text-gray-200">{exp.company}</div>
+              <div className="text-gray-800 dark:text-gray-200">{exp.company}</div>
               <div className="text-gray-600 dark:text-gray-400 mb-2">{exp.duration}</div>
               <ul className="list-disc list-inside mb-4 text-gray-700 dark:text-gray-300">
                 {exp.description.map((item, i) => (
