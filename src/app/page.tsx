@@ -26,7 +26,7 @@ export default function Home() {
             pauseDuration={2000}
           />
         </div>
-        <p className="text-lg sm:text-xl mb-8 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto sm:mx-0">
+        <p className="text-1xl sm:text-2xl mb-8 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto sm:mx-0">
           With a keen eye for detail and a love for problem-solving, I am passionate about creating innovative web solutions and exploring the world of robotics.
         </p>
         <div className="flex flex-wrap justify-center sm:justify-start gap-4">

@@ -13,7 +13,7 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-start pt-16 sm:pt-24 p-4 sm:p-8 md:p-16 lg:p-24 dark:bg-gray-900">
       <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-12 text-center text-gray-900 dark:text-white">
-        GET IN TOUCH WITH ME
+        CONTACT ME
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl w-full">
         {contactLinks.map((link, index) => (

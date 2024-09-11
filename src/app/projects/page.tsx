@@ -44,7 +44,7 @@ export default function Projects() {
         <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
             <div key={index} className="bg-gray-100 dark:bg-gray-800 p-4 sm:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-              <h2 className="text-xl sm:text-2xl font-semibold mb-2 dark:text-white">{project.title}</h2>
+              <h2 className="text-xl sm:text-2xl font-semibold mb-2 text-black dark:text-white">{project.title}</h2>
               <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-3">{project.description}</p>
               <div className="mb-3">
                 <h3 className="text-xs sm:text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">Technical Skills:</h3>
