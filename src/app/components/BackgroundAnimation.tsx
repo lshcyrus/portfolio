@@ -1,8 +1,23 @@
 'use client'
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const BackgroundAnimation = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    const updateDimensions = () => {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+    };
+
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+
+    return () => window.removeEventListener('resize', updateDimensions);
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -13,13 +28,8 @@ const BackgroundAnimation = () => {
 
     let animationFrameId: number;
 
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    canvas.width = dimensions.width;
+    canvas.height = dimensions.height;
 
     let t = 0;
 
@@ -46,10 +56,9 @@ const BackgroundAnimation = () => {
     animate();
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [dimensions]);
 
   return <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full -z-10" />;
 };
