@@ -35,7 +35,7 @@ function Navigation() {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-800 dark:text-white focus:outline-none z-50 relative"
+              className="text-gray-800 dark:text-white focus:outline-none z-50 relative text-2xl md:text-base"
             >
               {isMenuOpen ? '✕' : '☰'}
             </button>
