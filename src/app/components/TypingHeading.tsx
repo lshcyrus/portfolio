@@ -11,6 +11,7 @@ interface TypingHeadingProps {
 const TypingHeading: React.FC<TypingHeadingProps> = ({ text, speed = 50, className = '' }) => {
   const [displayedText, setDisplayedText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isFinished, setIsFinished] = useState(false);
 
   useEffect(() => {
     if (currentIndex < text.length) {
@@ -20,13 +21,15 @@ const TypingHeading: React.FC<TypingHeadingProps> = ({ text, speed = 50, classNa
       }, speed);
 
       return () => clearTimeout(timeout);
+    } else {
+      setIsFinished(true);
     }
   }, [currentIndex, text, speed]);
 
   return (
     <h1 className={`${className} ${styles.typingContainer}`}>
       {displayedText}
-      <span className={styles.cursor}>|</span>
+      <span className={`${styles.cursor} ${isFinished ? styles.fadeOut : ''}`}>|</span>
     </h1>
   );
 };
