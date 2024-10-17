@@ -14,10 +14,10 @@ const experiences: Experience[] = [
     company: "Fase Technology Group Limited",
     duration: "June 2024 - September 2024",
     description: [
-      "Collaborated with the project team and developed a control system for robotic arm DOBOT CR5 using Python and Flask WSGI Framework, together with usage of SenseTime SensePower and ESP32-CAM for object detection and image recognition.",
+      "Collaborated with the project team and developed a control system for DOBOT-CR5 using Python and Flask WSGI Framework, together with usage of SenseTime SensePower and ESP32-CAM for object detection and image recognition.",
       "Implemented a TCP/IP communication protocol between the robotic arm and the ESP32-CAM for real-time data transmission and control using Python, Lua and Arduino IDE.",
       "Utilized NVIDIA Jetson Nano for real-time video processing and object detection, achieving over 80% accuracy in object detection tasks.",
-      "Implemented object detection, tracking and robot arm control algorithm for robotic arm AUBO i5 using self-trained MobileNet SSD model with TensorRT, PyTorch and C++.",
+      "Implemented real-time object detection, tracking and robotic arm control algorithm for AUBO-i5 using self-trained MobileNet SSD model with TensorRT, PyTorch and C++.",
     ],
     technologies: ["Python", "TCP/IP", "Flask WSGI Framework", "Arduino", "ESP32-CAM", "Lua", "C++", "NVIDIA Jetson Nano", "NVIDIA CUDA", "NVIDIA TensorRT", "PyTorch"]
   },
