@@ -12,7 +12,7 @@ const experiences: Experience[] = [
   {
     title: "Robot Engineer Intern",
     company: "Fase Technology Group Limited",
-    duration: "June 2024 - September 2024",
+    duration: "June 2024 - October 2024",
     description: [
       "Collaborated with the project team and developed a control system for DOBOT-CR5 using Python and Flask WSGI Framework, together with usage of SenseTime SensePower and ESP32-CAM for object detection and image recognition.",
       "Implemented a TCP/IP communication protocol between the robotic arm and the ESP32-CAM for real-time data transmission and control using Python, Lua and Arduino IDE.",

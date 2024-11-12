@@ -1,0 +1,7 @@
+.magnetic {
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.magnetic:hover {
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+} 

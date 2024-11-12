@@ -14,7 +14,7 @@ export default function RootLayout({
           <div className="min-h-screen flex flex-col">
             <Navigation />
             <main className="flex-grow">
-              {children}
+                {children}
             </main>
             <footer className="py-6 bg-gray-100 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
               <div className="container mx-auto px-4 text-center">
@@ -28,6 +28,7 @@ export default function RootLayout({
             </footer>
           </div>
         </ThemeProvider>
+
       </body>
     </html>
   );
