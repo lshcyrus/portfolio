@@ -1,70 +1,74 @@
-import Link from 'next/link';
-import Header from '../components/Header';
-
-interface Project {
-  title: string;
-  description: string;
-  technologies: string[];
-  link?: string;
-}
-
-const projects: Project[] = [
-  // Add more projects here
-  {
-    title: "Robotics Control System",
-    description: "Effectively collaborated with the project team and developed a control system for robotic arm DOBOT CR5.",
-    technologies: ["Python", "ESP32-CAM", "Arduino", "TCP/IP", "Flask WSGI Framework"],
-  },
-  {
-    title: "Peanut KING Education Homepage",
-    description: "Redesigned and developed the education homepage for Peanut KING Solution Limited.",
-    technologies: ["React", "Next.js", "HTML", "CSS", "JavaScript", "AWS EC2", "Ubuntu", "Docker"],
-    link: "https://github.com/lshcyrus/Peanut-King-Solution-Limited-EduHome",
-  },
-  {
-    title: "Peanut KING Education Platform",
-    description: "Maintained and developed the online education platform for Peanut KING Solution Limited.",
-    technologies: ["React", "Node.js", "JavaScript", "Django", "Python", "HTML", "CSS", "AWS EC2", "Ubuntu"],
-    link: "https://peanutkingeducation.com/sign-in.html",
-  },
-  {
-    title: "Uno",
-    description: "Replicated the classic game Uno using C++. Implemented the game logic, player interaction, and card shuffling.",
-    technologies: ["C++"],
-    link: "https://github.com/lshcyrus/Uno",
-  }
-  
-];
+import Link from "next/link";
+import { projects } from "@/data/projects";
 
 export default function Projects() {
   return (
-    <main className="flex min-h-screen flex-col items-center p-4 sm:p-8 md:p-16 lg:p-24 dark:bg-gray-900">
-      <div className="w-full max-w-6xl">
-        <Header title="PROJECTS" />
-        <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <div key={index} className="bg-gray-100 dark:bg-gray-800 p-4 sm:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-              <h2 className="text-xl sm:text-2xl font-semibold mb-2 text-black dark:text-white">{project.title}</h2>
-              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-3">{project.description}</p>
-              <div className="mb-3">
-                <h3 className="text-xs sm:text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">Technical Skills:</h3>
-                <div className="flex flex-wrap gap-1 sm:gap-2">
-                  {project.technologies.map((tech, techIndex) => (
-                    <span key={techIndex} className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 text-xs px-2 py-0.5 rounded">
-                      {tech}
+    <main className="mx-auto min-h-screen w-full max-w-6xl px-4 py-12 sm:px-8 lg:px-10">
+      <header className="mb-10">
+        <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-100 sm:text-5xl">Projects</h1>
+        <p className="mt-3 max-w-3xl text-sm text-slate-600 dark:text-slate-300 sm:text-base">
+          Selected projects focused on robotics intelligence, AI systems, and low-latency edge deployment.
+        </p>
+      </header>
+
+      <div className="space-y-6">
+        {projects.map((project) => (
+          <article
+            key={project.title}
+            className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900"
+          >
+            <div>
+              <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 sm:text-2xl">{project.title}</h2>
+              <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{project.subtitle}</p>
+
+              <ul className="mt-4 list-disc space-y-1 pl-5 text-sm text-slate-700 dark:text-slate-300">
+                {project.highlights.map((highlight) => (
+                  <li key={highlight}>{highlight}</li>
+                ))}
+              </ul>
+
+              {!!project.metrics?.length && (
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {project.metrics.map((metric) => (
+                    <span
+                      key={metric}
+                      className="rounded-full border border-emerald-500/30 bg-emerald-100/60 px-3 py-1 text-xs text-emerald-800 dark:bg-emerald-500/10 dark:text-emerald-200"
+                    >
+                      {metric}
                     </span>
                   ))}
                 </div>
+              )}
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                {project.technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-full border border-sky-500/30 bg-sky-100/60 px-2 py-1 text-xs text-sky-800 dark:bg-sky-500/10 dark:text-sky-200"
+                  >
+                    {tech}
+                  </span>
+                ))}
               </div>
-              {project.link && (
-                <Link href={project.link} target="_blank" rel="noopener noreferrer" 
-                  className="inline-block text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 text-sm font-medium mt-2">
-                  View Project
-                </Link>
+
+              {!!project.links?.length && (
+                <div className="mt-4 flex flex-wrap gap-3">
+                  {project.links.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-semibold text-sky-700 hover:text-sky-500 dark:text-sky-300"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
               )}
             </div>
-          ))}
-        </div>
+          </article>
+        ))}
       </div>
     </main>
   );

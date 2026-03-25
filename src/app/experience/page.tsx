@@ -1,86 +1,45 @@
-import React from 'react';
+import { experiences } from "@/data/experience";
 
-interface Experience {
-  title: string;
-  company: string;
-  duration: string;
-  description: string[];
-  technologies: string[];
-}
-
-const experiences: Experience[] = [
-  {
-    title: "Robot Engineer Intern",
-    company: "Fase Technology Group Limited",
-    duration: "June 2024 - October 2024",
-    description: [
-      "Collaborated with the project team and developed a control system for DOBOT-CR5 using Python and Flask WSGI Framework, together with usage of SenseTime SensePower and ESP32-CAM for object detection and image recognition.",
-      "Implemented a TCP/IP communication protocol between the robotic arm and the ESP32-CAM for real-time data transmission and control using Python, Lua and Arduino IDE.",
-      "Utilized NVIDIA Jetson Nano for real-time video processing and object detection, achieving over 80% accuracy in object detection tasks.",
-      "Implemented real-time object detection, tracking and robotic arm control algorithm for AUBO-i5 using self-trained MobileNet SSD model with TensorRT, PyTorch and C++.",
-    ],
-    technologies: ["Python", "TCP/IP", "Flask WSGI Framework", "Arduino", "ESP32-CAM", "Lua", "C++", "NVIDIA Jetson Nano", "NVIDIA CUDA", "NVIDIA TensorRT", "PyTorch"]
-  },
-  {
-    title: "Software Engineer Intern",
-    company: "Peanut KING Solution Limited",
-    duration: "April 2024 - May 2024",
-    description: [
-      "Partnered efficiently with the marketing team and performed Search Engine Optimization (SEO) by renewing interface of home page using Next.js, resulting in an 18% increase in the number of new users",
-      "Implemented Google Analytics to track user behavior and optimize website performance",
-    ],
-    technologies: ["React", "Node.js", "JavaScript", "Next.js", "HTML", "CSS", "Docker"]
-  },
-  {
-    title: "Software Engineer Intern",
-    company: "Peanut KING Solution Limited",
-    duration: "June 2023 - September 2023",
-    description: [
-      "Redesigned and implemented 3 front-end of online education platform: Dashboard, Student panel and Admin panel using React.js, HTML and CSS",
-      "Maintained back-end of online education platform using Python, Django and AWS Linux 2, successfully addressed and solved 2 previous back-end issues",
-      "Collaborated effectively with the teaching team and implemented Wall following algorithm for autonomous robotic maze car using Arduino IDE",
-      "Assisted in HKU Engineering Academy For the Talented 2023 and conducted Arduino code reviews for over 50 participants from diverse backgrounds",
-    ],
-    technologies: ["React", "Node.js", "JavaScript", "Django"]
-  }
-];
-
-const ExperiencePage = () => {
+export default function ExperiencePage() {
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 dark:text-white mb-10">
-          EXPERIENCE
-        </h1>
-        <div className="space-y-1">
-          {experiences.map((exp, index) => (
-            <div key={index} className="relative pl-8 sm:pl-32 py-6 group">
-              <div className="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-gray-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-4 after:h-4 after:bg-blue-600 after:border-2 after:box-content after:border-gray-200 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
-                <time className="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-blue-600 bg-blue-100 rounded-full">
-                  {exp.duration.split(' - ')[0]}
-                </time>
-                <div className="text-xl font-bold text-gray-900 dark:text-white">{exp.title}</div>
-              </div>
-              <div className="text-gray-800 dark:text-gray-200">{exp.company}</div>
-              <div className="text-gray-600 dark:text-gray-400 mb-2">{exp.duration}</div>
-              <ul className="list-disc list-inside mb-4 text-gray-700 dark:text-gray-300">
-                {exp.description.map((item, i) => (
-                  <li key={i} className="mb-1">{item}</li>
+    <main className="mx-auto min-h-screen w-full max-w-5xl px-4 py-12 sm:px-8 lg:px-10">
+      <header className="mb-10">
+        <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-100 sm:text-5xl">Experience</h1>
+        <p className="mt-3 text-sm text-slate-600 dark:text-slate-300 sm:text-base">
+          Building robust software and robotic systems across web, edge, and AI domains.
+        </p>
+      </header>
+
+      <div className="relative space-y-6 before:absolute before:bottom-0 before:left-2 before:top-3 before:w-px before:bg-sky-600/30 sm:before:left-28">
+        {experiences.map((experience) => (
+          <article key={`${experience.company}-${experience.period}`} className="relative pl-8 sm:pl-36">
+            <span className="absolute left-0 top-2 h-4 w-4 rounded-full border-2 border-white bg-sky-500 dark:border-slate-950 sm:left-[106px]" />
+            <time className="mb-2 block text-xs font-semibold uppercase tracking-wide text-sky-700 dark:text-sky-300 sm:absolute sm:left-0 sm:top-1 sm:w-24">
+              {experience.period}
+            </time>
+
+            <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900">
+              <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100">{experience.role}</h2>
+              <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{experience.company}</p>
+              <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-slate-700 dark:text-slate-300">
+                {experience.highlights.map((highlight) => (
+                  <li key={highlight}>{highlight}</li>
                 ))}
               </ul>
-              <div className="flex flex-wrap gap-2">
-                {exp.technologies.map((tech, i) => (
-                  <span key={i} className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full">
-                    {tech}
+              <div className="mt-4 flex flex-wrap gap-2">
+                {experience.technologies.map((technology) => (
+                  <span
+                    key={technology}
+                    className="rounded-full border border-sky-500/30 bg-sky-100/60 px-2 py-1 text-xs text-sky-800 dark:bg-sky-500/10 dark:text-sky-200"
+                  >
+                    {technology}
                   </span>
                 ))}
               </div>
             </div>
-          ))}
-        </div>
+          </article>
+        ))}
       </div>
-    </div>
+    </main>
   );
-};
-
-export default ExperiencePage;
+}
